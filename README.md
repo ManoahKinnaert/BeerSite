@@ -17,4 +17,4 @@ bv. `OLLAMA_HOST=127.0.0.1:5051 ollama serve`
 5) Start de flask server
 `DEBUG=true OLLAMA_HOST=127.0.0.1:ollama_poort python beer_site`
 bv. `DEBUG=true OLLAMA_HOST=127.0.0.1:5051 python beer_site`
-6) Geniet van de app...
+6) Geniet van de app
