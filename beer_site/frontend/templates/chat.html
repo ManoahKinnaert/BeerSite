@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% block title %}Chat{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('frontend.static', filename='css/chat.css') }}">
+
+<div class="container-fluid chat-wrapper">
+    
+  <div id="chat_box" class="chat-box d-flex flex-column"></div>
+
+  <div class="chat-input-wrapper d-flex px-3">
+    <input
+      type="text"
+      id="user_input"
+      class="form-control me-2"
+      placeholder="Schrijf iets..."
+      autocomplete="off"
+    />
+    <button id="send_btn" class="btn btn-warning">Chat</button>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chat_box");
+  const userInput = document.getElementById("user_input");
+  const sendBtn = document.getElementById("send_btn");
+
+  sendBtn.addEventListener("click", async () => {
+    const userMessage = userInput.value.trim();
+    if (!userMessage) return alert("Please enter a message");
+
+    // Append user message
+    const userDiv = document.createElement("div");
+    userDiv.className = "message-right";
+    userDiv.textContent = userMessage;
+    chatBox.appendChild(userDiv);
+
+    // Clear input
+    userInput.value = "";
+
+    // Send message to server
+    try {
+      const response = await fetch("/backend/query_chat_with_beer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage }),
+      });
+
+      const data = await response.json();
+
+      // Append bot response
+      const botDiv = document.createElement("div");
+      botDiv.className = "message-left";
+      botDiv.textContent = data.answer || "No response received.";
+      chatBox.appendChild(botDiv);
+
+      // Scroll to bottom
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (err) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "message-left text-danger";
+      errorDiv.textContent = "Error: Unable to fetch response.";
+      chatBox.appendChild(errorDiv);
+    }
+  });
+
+  // Send message on enter  
+  userInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      sendBtn.click();
+      e.preventDefault();
+    }
+  });
+</script>
+
+{% endblock %}

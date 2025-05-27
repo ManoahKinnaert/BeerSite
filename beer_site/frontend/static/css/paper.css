@@ -1,0 +1,16 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.fullscreen-card {
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.fullscreen-iframe {
+    border-radius: 0;
+}

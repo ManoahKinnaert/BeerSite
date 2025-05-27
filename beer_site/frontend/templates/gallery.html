@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% block title %}Galerij{% endblock %}
+{% block content %}
+<div class="container-fluid px-2">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/IMG_3455.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Ons bezoek aan BRAUW te Genk was een hele belevenis waar we veel dingen
+                        hebben bijgeleerd. En we hebben er mogen meehelpen met het brouwen van een biertje :)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/oc_praktijk.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Het maischen, we voegen wat mout toe aan warm water. Het resultaat?
+                        Een zoet mengsel.
+                    </p>  
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/IMG_3500.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Goed aan het hoppen!</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/IMG_3501.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Goed aan het hoppen!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/IMG_3502.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Hop up close.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('frontend.static', filename='img/IMG_3505.jpeg') }}"
+                    class="bd-placeholder-img card-img-top" alt="Thumbnail" height="100%" width="100%">
+                <div class="card-body">
+                    <p class="card-text">Premium gist voor een premium bier :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
